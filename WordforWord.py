@@ -1,6 +1,8 @@
 import os
 import re
 
+#https://www.w3schools.com/python/python_regex.asp
+
 class wordProcessor:
 
     pass
@@ -34,8 +36,20 @@ class wordProcessor:
         #pass
 
 
-    def letterFrequency(self):
-        pass
+    def letterFrequency(self, content):
+        wcontent = re.sub(r'[^a-zA-Z]', '', content).lower()
+        letters = list(wcontent)
+
+        result = {}
+
+        for i in letters:
+            if i in result:
+                result[i]+= 1
+            else:
+                result[i] = 1
+        return result
+
+        #pass
 
 
 
@@ -50,4 +64,7 @@ print(result)
 
 wordfreq = processor.wordFrequency(text)
 print(wordfreq)
+
+letterfreq = processor.letterFrequency(text)
+print(letterfreq)
 
